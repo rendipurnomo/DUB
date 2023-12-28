@@ -3,6 +3,7 @@ import Helmet from '../components/Helmet';
 import hero from '../assets/hero.png';
 import Products from '../components/Products';
 import Category from '../components/Category';
+import Banner from '../components/ui/Banner';
 
 const Home = () => {
   return (
@@ -39,6 +40,7 @@ const Home = () => {
       <Category />
       <Products color="yellow" />
       <Products color="green" />
+      <Banner />
     </Helmet>
   );
 };

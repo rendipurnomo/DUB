@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import { getProducts } from '../../services/apiProducts';
+import { getAllProducts } from '../../services/apiProducts';
 
 
-export function useProducts() {
+export function useAllProducts() {
   const {
     isLoading,
     data: products,
     error,
   } = useQuery({
     queryKey: ['products'],
-    queryFn: getProducts,
+    queryFn: getAllProducts,
   });
   return { isLoading, error, products };
 }

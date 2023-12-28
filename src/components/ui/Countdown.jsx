@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const Countdown = ({ bulan, tanggal }) => {
+const Countdown = ({ bulan, tanggal, classname }) => {
 
   const calculateTimeLeft = () => {
     let year = new Date().getFullYear();
@@ -34,8 +34,10 @@ useEffect(() => {
     }
 
     timerComponents.push(
-      <span key={interval} className='bg-red-500 px-2 py-1 rounded text-white mx-1 font-bold'>
-        {timeLeft[interval]} {interval}{' '}
+      <span key={interval} 
+      
+      className={`bg-red-500 rounded text-white mx-1 font-bold ${classname}`}>
+        {timeLeft[interval]}{' '}
       </span>
     );
   });

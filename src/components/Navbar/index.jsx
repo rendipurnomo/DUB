@@ -14,10 +14,10 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
   return (
     <header className="flex justify-between p-4 items-center bg-gradient-to-l from-secondary via-primary to-secondary">
-      <div>
+      <Link to="/">
         <img className="h-14" src={logo} alt="logo" />
-      </div>
-      <nav className="max-md:fixed bottom-4 left-4 right-4 rounded-2xl md:rounded-full bg-light/20  backdrop-blur-xl text-light md:text-secondary  [&_.active]:text-primary z-50">
+      </Link>
+      <nav className="max-md:fixed bottom-4 left-4 right-4 rounded-2xl md:rounded-full bg-light/30  backdrop-blur-2xl text-light md:text-secondary  [&_.active]:text-primary z-50">
         <Navlist />
       </nav>
       <div className="flex gap-4 text-black">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useProducts } from './useProducts';
+import { useAllProducts } from './useAllProducts';
 import Loader from '../ui/Loader';
 import Countdown from '../ui/Countdown';
 import Flickity from 'react-flickity-component';
@@ -14,7 +14,7 @@ const flickityOptions = {
 };
 
 const Products = ({color}) => {
-  const { isLoading, error, products } = useProducts();
+  const { isLoading, error, products } = useAllProducts();
 
   return (
     <div className="px-4 md:px-14 mt-4">
@@ -25,7 +25,7 @@ const Products = ({color}) => {
         <div className="flex gap-2 items-center text-xs md:text-base justify-between w-full flex-wrap">
           <div className="flex gap-2 items-center flex-wrap">
             <p>Berakhir dalam</p>
-            <Countdown bulan={12} tanggal={28} />
+            <Countdown bulan={12} tanggal={30} classname={'p-2'} />
           </div>
           <Link
             to="/products"
