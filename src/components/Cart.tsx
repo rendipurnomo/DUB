@@ -13,15 +13,16 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Price from './Price';
 // import { loadStripe } from '@stripe/stripe-js';
-import { useSession } from 'next-auth/react';
-import { Button } from './ui/button';
+// import { useSession } from 'next-auth/react';
 import { Modals } from './Modals';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const Cart = () => {
   const { productData } = useSelector((state: StateProps) => state.umkm);
   const dispatch = useDispatch();
   const [totalAmt, setTotalAmt] = useState(0);
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
+  const { user, error, isLoading } = useUser();
   
   useEffect(() => {
     let price = 0;
@@ -43,14 +44,14 @@ const Cart = () => {
   //   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
   // );
   const createCheckout = async () => {
-    if (session?.user) {
+    if (user) {
       // const stripe = await stripePromise;
       const response = await fetch('http://localhost:3000/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'appication/json' },
         body: JSON.stringify({
           items: productData,
-          email: session?.user?.email,
+          email: user?.email,
         }),
       });
       const data = await response.json();

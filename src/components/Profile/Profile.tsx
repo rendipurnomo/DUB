@@ -11,9 +11,11 @@ import {
 import { signIn, signOut, useSession } from 'next-auth/react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { getSession } from '@auth0/nextjs-auth0';
 
-const Profile = () => {
-  const { data: session } = useSession();
+const Profile = async() => {
+   const { user }: any = await getSession();
+  // const { data: session } = useSession();
   const router = useRouter();
   return (
     <DropdownMenu>
@@ -21,8 +23,8 @@ const Profile = () => {
         <Avatar className="hidden md:block">
           <AvatarImage
             src={
-              session?.user
-                ? session?.user?.image!
+              user
+                ? user?.image!
                 : 'https://github.com/shadcn.png'
             }
           />
@@ -35,19 +37,17 @@ const Profile = () => {
         <DropdownMenuItem onClick={() => router.push('/profile')}>Settings
         </DropdownMenuItem>
         <DropdownMenuItem>History</DropdownMenuItem>
-        {!session?.user ? (
+        {!user ? (
           <DropdownMenuItem
             onClick={() =>
-              !session?.user ? signIn() : toast.error('Your are signed in')
+              user ? router.push('/api/auth/login') : toast.error('Your are signed in')
             }>
             Login
           </DropdownMenuItem>
         ) : (
           <DropdownMenuItem
             onClick={() =>
-              signOut({
-                callbackUrl: 'http://localhost:3000',
-              })
+              router.push('/api/auth/logout')
             }>
             Logout
           </DropdownMenuItem>

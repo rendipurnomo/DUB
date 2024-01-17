@@ -20,7 +20,6 @@ import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
 import { StateProps } from '../../../type';
-import { useSession } from 'next-auth/react';
 import CartItem from '../CartItem';
 import emptyCart from '../../aseets/emptyCart.png';
 import { resetCart } from '@/redux/umkmSlice';
@@ -35,7 +34,6 @@ const CartSheet = () => {
   const { productData } = useSelector((state: StateProps) => state.umkm);
   const dispatch = useDispatch();
   const [totalAmt, setTotalAmt] = useState(0);
-  const { data: session } = useSession();
   const router = useRouter();
   
   useEffect(() => {
