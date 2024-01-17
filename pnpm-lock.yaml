@@ -109,6 +109,9 @@ devDependencies:
   '@sanity/eslint-config-studio':
     specifier: ^3.0.1
     version: 3.0.1(eslint@8.56.0)(typescript@5.3.3)
+  '@types/animejs':
+    specifier: ^3.1.12
+    version: 3.1.12
   '@types/node':
     specifier: ^20
     version: 20.11.0
@@ -3526,6 +3529,10 @@ packages:
   /@tanstack/virtual-core@3.0.0-beta.54:
     resolution: {integrity: sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==}
     dev: false
+
+  /@types/animejs@3.1.12:
+    resolution: {integrity: sha512-fpdH+ZtlO0kqjTOqRaBdsEmvpRNOayI8k4EVkEtitL5l6wducDOXk0rgQgfZqWf/ZX9DzXrHf257S5i9xTcISQ==}
+    dev: true
 
   /@types/babel__core@7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}

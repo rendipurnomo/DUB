@@ -4,7 +4,7 @@ import anime from 'animejs';
 import Image from 'next/image';
 
 const SplashScreen = ({ finishLoading }: { finishLoading: () => void }) => {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const animete = () => {
     const loader = anime.timeline({
@@ -62,8 +62,7 @@ const SplashScreen = ({ finishLoading }: { finishLoading: () => void }) => {
   }, []);
   return (
     <div
-      className="w-screen h-screen bg-stone-900 flex justify-center items-center"
-      isMounted={isMounted}>
+      className="w-screen h-screen bg-stone-900 flex justify-center items-center" isMounted={isMounted} >
       <Image id="logo" src={'/logo.png'} width={80} height={80} alt="logo" />
     </div>
   );

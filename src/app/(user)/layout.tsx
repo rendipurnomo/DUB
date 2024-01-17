@@ -1,11 +1,9 @@
 "use client";
 
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../../styles/globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import 'slick-carousel/slick/slick.css';
-import PageButton from '@/components/PageButton';
 import Layout from '@/components/Layout';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/DarkMode/theme-provider';
