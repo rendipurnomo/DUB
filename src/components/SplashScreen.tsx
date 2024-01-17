@@ -6,7 +6,7 @@ import Image from 'next/image';
 const SplashScreen = ({ finishLoading }: { finishLoading: () => void }) => {
   const [isMounted, setIsMounted] = useState(false);
 
-  const animete = () => {
+  const animate = () => {
     const loader = anime.timeline({
       complete: () => finishLoading(),
     });
@@ -57,13 +57,13 @@ const SplashScreen = ({ finishLoading }: { finishLoading: () => void }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), 10);
-    animete();
+    animate();
     return () => clearTimeout(timeout);
   }, []);
   return (
     <div
-      className="w-screen h-screen bg-stone-900 flex justify-center items-center" isMounted={isMounted} >
-      <Image id="logo" src={'/logo.png'} width={80} height={80} alt="logo" />
+      className="w-screen h-screen bg-stone-900 flex justify-center items-center" >
+      <Image priority id="logo" src={'/logo.png'} width={80} height={80} alt="logo" />
     </div>
   );
 };

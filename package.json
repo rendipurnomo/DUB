@@ -38,6 +38,7 @@
     "react-slick": "^0.29.0",
     "redux-persist": "^6.0.0",
     "sanity": "^3.24.1",
+    "sharp": "^0.33.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.7",
     "tailwind-merge": "^2.2.0",
