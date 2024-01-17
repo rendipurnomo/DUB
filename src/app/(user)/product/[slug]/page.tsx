@@ -14,6 +14,7 @@ interface Props {
     slug: string;
   };
 }
+export const revalidate = 0;
 
 export const generateStaticParams = async () => {
   const query = groq`*[_type == 'product']{

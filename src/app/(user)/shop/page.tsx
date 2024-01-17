@@ -1,17 +1,13 @@
 'use client';
 
 import Container from '@/components/Container';
-import { categories, products } from '@/lib/sanityClient';
+import { products } from '@/lib/sanityClient';
 import React, { useEffect, useState } from 'react';
-import { BsGridFill } from 'react-icons/bs';
-import { ImList } from 'react-icons/im';
 import { ProductProps } from '../../../../type';
 import Product from '@/components/Product';
-import ListProduct from '@/components/ListProduct';
 import { Filter } from '@/components/Filter';
 
 const ShopPage = () => {
-  const [categoryData, setCategoryData] = useState([]);
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
@@ -23,16 +19,8 @@ const ShopPage = () => {
         console.error('Error fetching product data:', error);
       }
     };
-    const filterCategory = async () => {
-      try {
-        const data = await categories();
-        setCategoryData(data);
-      } catch (error) {
-        console.error('Error fetching product data:', error);
-      }
-    }
+    
     fetchData();
-    filterCategory();
   }, []);
 
   return (

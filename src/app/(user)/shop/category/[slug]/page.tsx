@@ -1,18 +1,13 @@
 "use client";
 
 import Container from '@/components/Container';
-import { client, products } from '@/lib/sanityClient';
+import { client } from '@/lib/sanityClient';
 import React, { useEffect, useState } from 'react';
-import { BsGridFill } from 'react-icons/bs';
-import { ImList } from 'react-icons/im';
 import { ProductProps } from '../../../../../../type';
 import Product from '@/components/Product';
-import ListProduct from '@/components/ListProduct';
 import { Filter } from '@/components/Filter';
 
 const Category = ({ params: { slug } }: { params: { slug: string } }) => {
-    const [showGrid, setShowGrid] = useState(true);
-    const [showList, setShowList] = useState(false);
     const [productData, setProductData] = useState([]);
 
     useEffect(() => {
