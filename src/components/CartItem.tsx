@@ -3,7 +3,6 @@ import { ProductProps } from '../../type';
 import Image from 'next/image';
 import { urlFor } from '@/lib/sanityClient';
 import Link from 'next/link';
-import Price from './Price';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import {

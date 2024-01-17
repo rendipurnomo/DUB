@@ -18,7 +18,6 @@ import { Skeleton } from '../ui/skeleton';
 const SearchButton = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [query, setQuery] = useState<string>('');
-  // const [debounced] = useDebouncedValue(query, 300)
   const [data, setData] = useState<any>(null)
   const [isPending, startTransition] = useTransition()
   const router = useRouter();

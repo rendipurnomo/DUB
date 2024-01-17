@@ -1,25 +1,24 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-// import { useSession } from 'next-auth/react';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useSession } from 'next-auth/react';
 
-const UserProfile = async() => {
-  // const { data: session } = useSession();
-  const { user, error, isLoading } = useUser();
+const UserProfile = () => {
+  const { data: session } = useSession();
+
   return (
     <div className='flex flex-col items-center justify-center'>
       <Avatar>
         <AvatarImage
           src={
-            user
-              ? user.picture!
+            session?.user
+              ? session?.user?.image!
               : 'https://github.com/shadcn.png'
           }
         />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
-      <h1>{user?.name}</h1>
+      <h1>{session?.user?.name}</h1>
     </div>
   );
 };

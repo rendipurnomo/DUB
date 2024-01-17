@@ -11,7 +11,6 @@ import { Toaster } from 'react-hot-toast';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import SplashScreen from '@/components/SplashScreen';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,35 +29,33 @@ export default function RootLayout({
   },[isLoading])
   return (
     <html lang="en" suppressHydrationWarning>
-      <UserProvider>
-        <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange>
-            {isLoading && isHomePage ? (
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+            {isLoading && isHomePage ?(
               <SplashScreen finishLoading={() => setIsLoading(false)} />
-            ) : (
+            ):(
               <Layout>
-                <Navbar />
-                <Toaster
-                  position="top-center"
-                  toastOptions={{
-                    style: {
-                      background: '#ffffff',
-                      color: '#000',
-                    },
-                  }}
-                />
-                {/* <PageButton /> */}
-                {children}
-                <Footer />
-              </Layout>
+            <Navbar />
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                style: {
+                  background: '#ffffff',
+                  color: '#000',
+                },
+              }}
+            />
+            {/* <PageButton /> */}
+            {children}
+            <Footer />
+          </Layout>
             )}
-          </ThemeProvider>
-        </body>
-      </UserProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
